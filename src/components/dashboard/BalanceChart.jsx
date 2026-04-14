@@ -8,8 +8,8 @@ const CustomFintechTooltip = ({ active, payload, label }) => {
       <div className="bg-[#141414] backdrop-blur-md px-5 py-4 rounded-2xl border border-[#2a2a2a] shadow-2xl">
         <p className="text-zinc-500 text-[10px] uppercase tracking-widest font-bold mb-1">{label}</p>
         <p className="text-[#d49a6a] text-xl font-extrabold flex items-baseline">
-          <span className="text-zinc-600 text-sm mr-1">$</span>
-          {payload[0].value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+          <span className="text-zinc-600 text-sm mr-1">₹</span>
+          {payload[0].value.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
         </p>
       </div>
     );
@@ -28,7 +28,7 @@ const BalanceChart = () => {
       if (tx.type === 'income') currentBalance += tx.amount;
       else currentBalance -= tx.amount;
       return {
-        date: new Date(tx.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+        date: new Date(tx.date).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' }),
         balance: currentBalance
       };
     });

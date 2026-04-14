@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { useTransactionStore } from '../../store/useTransactionStore';
 
-// CRED Theme adapted colors: Primary Gold, Mint Green, Vivid Purple, Bright Cyan, Slate
+// Zorvyn Theme adapted colors: Primary Gold, Mint Green, Vivid Purple, Bright Cyan, Slate
 const COLORS = ['#d49a6a', '#10B981', '#A855F7', '#06b6d4', '#4B5563'];
 
 const SpendingBreakdown = () => {
@@ -36,8 +36,8 @@ const SpendingBreakdown = () => {
         <div className="bg-[#141414] backdrop-blur-md px-4 py-3 rounded-xl border border-[#2a2a2a] shadow-xl">
           <p className="text-zinc-400 text-[10px] uppercase font-bold tracking-widest mb-1">{payload[0].name}</p>
           <p className="text-white text-lg font-extrabold flex items-baseline">
-            <span className="text-zinc-600 text-sm mr-1">$</span>
-            {payload[0].value.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+            <span className="text-zinc-600 text-sm mr-1">₹</span>
+            {payload[0].value.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
           </p>
         </div>
       );

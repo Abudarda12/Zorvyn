@@ -75,21 +75,21 @@ const TransactionList = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
             whileHover={{ scale: 1.005 }}
-            className="group flex items-center justify-between p-[18px] bg-[#141414] hover:bg-[#181818] rounded-2xl transition-all border border-[#1e1e1e] hover:border-[#333] hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
+            className="group flex flex-row items-center justify-between p-4 md:p-[18px] bg-[#141414] hover:bg-[#181818] rounded-2xl transition-all border border-[#1e1e1e] hover:border-[#333] hover:shadow-[0_4px_20px_rgba(0,0,0,0.5)] gap-2 md:gap-0"
           >
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 md:space-x-4 min-w-0">
               <CategoryIcon category={tx.category} />
-              <div>
-                <h4 className="font-bold text-zinc-100 text-[15px] tracking-tight">{tx.description}</h4>
-                <p className="text-[11px] text-zinc-500 font-bold uppercase tracking-wider mt-1">
-                  {new Date(tx.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} <span className="opacity-50 mx-1">•</span> {tx.category}
+              <div className="min-w-0 truncate">
+                <h4 className="font-bold text-zinc-100 text-[14px] md:text-[15px] tracking-tight truncate">{tx.description}</h4>
+                <p className="text-[10px] md:text-[11px] text-zinc-500 font-bold uppercase tracking-wider mt-1 truncate">
+                  {new Date(tx.date).toLocaleDateString('en-IN', { month: 'short', day: 'numeric' })} <span className="opacity-50 mx-1">•</span> {tx.category}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center space-x-6">
-              <span className={`font-extrabold text-[15px] ${tx.type === 'income' ? 'text-emerald-400' : 'text-zinc-200'}`}>
-                {tx.type === 'income' ? '+' : '-'}${tx.amount.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+            <div className="flex items-center space-x-3 md:space-x-6 flex-shrink-0">
+              <span className={`font-extrabold text-[14px] md:text-[15px] ${tx.type === 'income' ? 'text-emerald-400' : 'text-zinc-200'} whitespace-nowrap`}>
+                {tx.type === 'income' ? '+' : '-'}₹{tx.amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
               </span>
               
               <RoleGuard requireAdmin={true} fallback={<div className="w-8 h-8"></div>}>

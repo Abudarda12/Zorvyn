@@ -21,7 +21,7 @@ const Insights = () => {
         color: 'text-[#ef4444]',
         bg: 'bg-[#2a0e13] border-[#ef4444]/20',
         title: 'Top Expenditure',
-        description: `Your highest spend is ${highestCategory} at $${catTotals[highestCategory].toLocaleString()}.`
+        description: `Your highest spend is ${highestCategory} at ₹${catTotals[highestCategory].toLocaleString('en-IN')}.`
       });
     }
 
@@ -52,7 +52,7 @@ const Insights = () => {
   }, [transactions]);
 
   return (
-    <div className="bg-[#111111] rounded-[32px] p-8 shadow-2xl border border-[#1e1e1e]">
+    <div className="bg-[#111111] rounded-[32px] p-5 md:p-8 shadow-2xl border border-[#1e1e1e]">
       <h2 className="text-lg font-bold text-white mb-6 font-sans tracking-tight">Intelligence</h2>
       <div className="space-y-4">
         {insights.map((insight, idx) => {
